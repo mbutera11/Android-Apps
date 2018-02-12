@@ -9,17 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="lab3.android.wku.edu.multipleactivities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SquadPage" />
-        <activity android:name=".WeaponsPage" />
-        <activity android:name=".StrucPage" />
-        <activity android:name=".Review"></activity>
+        <activity android:name="lab3.android.wku.edu.multipleactivities.SquadPage" />
+        <activity android:name="lab3.android.wku.edu.multipleactivities.WeaponsPage" />
+        <activity android:name="lab3.android.wku.edu.multipleactivities.StrucPage" />
+        <activity android:name="lab3.android.wku.edu.multipleactivities.Review"></activity>
     </application>
 
 </manifest>
