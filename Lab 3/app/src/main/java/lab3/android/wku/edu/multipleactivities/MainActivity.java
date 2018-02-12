@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("The Fortnite Club");
 
     }
 
@@ -19,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
 
-        setIntentOnMenuItem(menu, R.id.firstPage, new Intent(MainActivity.this, FirstPage.class));
-        setIntentOnMenuItem(menu, R.id.secondPage, new Intent(MainActivity.this, SecondPage.class));
-        setIntentOnMenuItem(menu, R.id.thirdPage, new Intent(MainActivity.this, ThirdPage.class));
+        setIntentOnMenuItem(menu, R.id.squad, new Intent(MainActivity.this, SquadPage.class));
+        setIntentOnMenuItem(menu, R.id.weapons, new Intent(MainActivity.this, WeaponsPage.class));
+        setIntentOnMenuItem(menu, R.id.structure, new Intent(MainActivity.this, StrucPage.class));
         setIntentOnMenuItem(menu, R.id.review, new Intent(MainActivity.this, Review.class));
 
         super.onCreateOptionsMenu(menu);

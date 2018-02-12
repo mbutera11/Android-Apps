@@ -3,14 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/firstPage"
-        android:title="First Page" />
+        android:id="@+id/squad"
+        android:title="Squad" />
     <item
-        android:id="@+id/secondPage"
-        android:title="Second Page" />
+        android:id="@+id/weapons"
+        android:title="Weapons" />
     <item
-        android:id="@+id/thirdPage"
-        android:title="Third Page" />
+        android:id="@+id/structure"
+        android:title="Strucs" />
     <item
         android:id="@+id/review"
         android:title="Review My App" />

@@ -3,13 +3,13 @@ package lab3.android.wku.edu.multipleactivities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ThirdPage extends AppCompatActivity {
+public class SquadPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_third_page);
-        getSupportActionBar().setTitle("Third Page");
+        setContentView(R.layout.activity_squad_page);
+        getSupportActionBar().setTitle("About the Squad");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
@@ -19,5 +19,6 @@ public class ThirdPage extends AppCompatActivity {
         finish();
         return true;
     }
+
 
 }
