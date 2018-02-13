@@ -1,3 +1,5 @@
+// Michael Butera
+
 package lab3.android.wku.edu.multipleactivities;
 
 import android.content.Intent;
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    //create the options menu
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
 

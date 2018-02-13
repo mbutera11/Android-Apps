@@ -10,7 +10,7 @@
         android:title="Weapons" />
     <item
         android:id="@+id/structure"
-        android:title="Strucs" />
+        android:title="Building" />
     <item
         android:id="@+id/review"
         android:title="Review My App" />
