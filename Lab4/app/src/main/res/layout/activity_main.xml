@@ -15,6 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="109dp"
         android:text="Price of Car:"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toStartOf="@+id/priceOfCar"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +29,7 @@
         android:layout_marginEnd="160dp"
         android:layout_marginStart="16dp"
         android:text="Down Payment:"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintEnd_toStartOf="@+id/downPayment"
         app:layout_constraintStart_toStartOf="parent" />
@@ -40,6 +42,7 @@
         android:layout_marginEnd="131dp"
         android:layout_marginStart="16dp"
         android:text="Yearly Interest Rate:"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toStartOf="@+id/interestRate"
         app:layout_constraintStart_toStartOf="parent" />
@@ -52,12 +55,12 @@
         android:layout_marginEnd="135dp"
         android:layout_marginStart="135dp"
         android:text="Select Loan Term:"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup2"
+        app:layout_constraintBottom_toTopOf="@+id/rgroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
-        android:id="@+id/radioGroup2"
+        android:id="@+id/rgroup"
         android:layout_width="143dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="21dp"
@@ -98,6 +101,7 @@
         android:layout_marginEnd="148dp"
         android:layout_marginStart="148dp"
         android:layout_weight="1"
+        android:onClick="sendMessage"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,10 +110,10 @@
     <EditText
         android:id="@+id/priceOfCar"
         android:layout_width="95dp"
-        android:layout_height="29dp"
-        android:layout_marginBottom="18dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="5dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="99dp"
+        android:layout_marginTop="85dp"
         android:ems="10"
         android:inputType="number"
         android:textAlignment="center"
@@ -120,7 +124,7 @@
     <EditText
         android:id="@+id/interestRate"
         android:layout_width="95dp"
-        android:layout_height="29dp"
+        android:layout_height="43dp"
         android:layout_marginBottom="274dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
@@ -132,8 +136,8 @@
     <EditText
         android:id="@+id/downPayment"
         android:layout_width="95dp"
-        android:layout_height="29dp"
-        android:layout_marginBottom="33dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="19dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="number"
