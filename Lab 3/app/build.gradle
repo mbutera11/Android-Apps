@@ -3,12 +3,13 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "lab3.android.wku.edu.multipleactivities"
+        applicationId "MichaelButera.multipleactivities"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        setProperty("archivesBaseName", applicationId)
     }
     buildTypes {
         release {

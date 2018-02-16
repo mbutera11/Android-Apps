@@ -5,6 +5,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/darker_gray"
-    tools:context="lab3.android.wku.edu.multipleactivities.StrucPage">
+    tools:context="lab3.android.wku.edu.multipleactivities.StrucPage"
+    tools:layout_editor_absoluteY="81dp">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioGroup
+            android:id="@+id/rGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="54dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Select option to learn about"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/radioButton9"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:text="Materials" />
+
+            <RadioButton
+                android:id="@+id/radioButton10"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:text="Type of Build" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:text="Submit" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="359dp"
+                android:layout_height="407dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+        </RadioGroup>
+
+    </FrameLayout>
 </android.support.constraint.ConstraintLayout>

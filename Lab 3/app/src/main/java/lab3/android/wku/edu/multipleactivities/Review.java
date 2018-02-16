@@ -1,3 +1,5 @@
+// Michael Butera
+
 package lab3.android.wku.edu.multipleactivities;
 
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +19,8 @@ public class Review extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final RatingBar rBar = findViewById(R.id.ratingBar);
+
+        //display a message depending on the rating that is given
         rBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
@@ -31,6 +35,7 @@ public class Review extends AppCompatActivity {
             }
         });
 
+        //button that toggles the app. If toggled, it quits the app
         ToggleButton tb = findViewById(R.id.toggleButton);
         tb.setOnClickListener(new View.OnClickListener() {
             @Override
