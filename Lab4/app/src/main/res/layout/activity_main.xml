@@ -115,7 +115,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="85dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/downPayment"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,7 +128,7 @@
         android:layout_marginBottom="274dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -140,7 +140,7 @@
         android:layout_marginBottom="19dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/interestRate"
         app:layout_constraintEnd_toEndOf="parent" />

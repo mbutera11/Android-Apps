@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
         int price = Integer.parseInt(et.getText().toString());
         int downPay = Integer.parseInt(et2.getText().toString());
-        int rate = Integer.parseInt(et3.getText().toString());
+        double rate = Double.parseDouble(et3.getText().toString());
 
         in.putExtra("CarPrice", price);
-        in.putExtra("DownPayent", downPay);
+        in.putExtra("DownPayment", downPay);
         in.putExtra("InterestRate", rate);
         in.putExtra("LoanTerm", rButton.getText());
 
