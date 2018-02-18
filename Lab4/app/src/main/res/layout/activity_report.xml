@@ -125,6 +125,7 @@
         android:layout_height="27dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -197,6 +198,7 @@
             android:id="@+id/yearlyRate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="6%"
             android:textAlignment="center"
             android:textSize="18sp" />
 
