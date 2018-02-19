@@ -8,12 +8,12 @@
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="206dp"
+        android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="33dp"
         android:text="Monthly Payment:"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17">
@@ -70,9 +70,11 @@
         android:id="@+id/linearLayout"
         android:layout_width="162dp"
         android:layout_height="155dp"
+        android:layout_marginBottom="107dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="49dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
@@ -121,12 +123,12 @@
 
     <TextView
         android:id="@+id/monthlyPayment"
-        android:layout_width="100dp"
-        android:layout_height="27dp"
+        android:layout_width="110dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:textAlignment="center"
-        android:textSize="18sp"
+        android:layout_marginTop="33dp"
+        android:textAlignment="textEnd"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -136,7 +138,7 @@
         android:layout_width="96dp"
         android:layout_height="100dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthlyPayment">
@@ -145,14 +147,14 @@
             android:id="@+id/carPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/salesTax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textSize="18sp" />
 
         <TextView
@@ -160,23 +162,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="$300.00"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/yourCost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout7"
         android:layout_width="93dp"
         android:layout_height="154dp"
+        android:layout_marginBottom="107dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="47dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
@@ -184,43 +189,42 @@
             android:id="@+id/downPayment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/borrowedAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/yearlyRate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="6%"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/termLength"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/loanInterest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/totalCost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textSize="18sp" />
     </LinearLayout>
 

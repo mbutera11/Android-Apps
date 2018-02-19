@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.text.DecimalFormat;
 
 public class Report extends AppCompatActivity {
@@ -20,12 +18,15 @@ public class Report extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
+        getSupportActionBar().setTitle("Loan Report");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //get info from main page
         Intent intent = getIntent();
         int carPrice = intent.getIntExtra("CarPrice", 0);
         int downPayment = intent.getIntExtra("DownPayment", 0);
         String loanTerm = intent.getStringExtra("LoanTerm");
+        double yearlyInterest = intent.getDoubleExtra("YearlyInterest", 0);
         int loanTermNum = Character.getNumericValue(loanTerm.charAt(0));
 
         // textView objects for everything that will be displaying a value in report
@@ -37,6 +38,7 @@ public class Report extends AppCompatActivity {
 
         TextView downPaymentView = findViewById(R.id.downPayment);
         TextView borrowedAmtView = findViewById(R.id.borrowedAmount);
+        TextView yearlyRateView = findViewById(R.id.yearlyRate);
         TextView termLengthView = findViewById(R.id.termLength);
         TextView totalLoanView = findViewById(R.id.loanInterest);
         TextView totalCostView = findViewById(R.id.totalCost);
@@ -49,14 +51,16 @@ public class Report extends AppCompatActivity {
         yourCostView.setText("$" + df2.format(yourCost));
 
         downPaymentView.setText("$" + downPayment + ".00");
-        borrowedAmtView.setText("$" + (yourCost - downPayment));
+        borrowedAmtView.setText("$" + df2.format((yourCost - downPayment)));
+        yearlyRateView.setText((yearlyInterest*100) + "%");
         termLengthView.setText(loanTermNum + " Years");
 
         // used in formula
         double p = (yourCost-downPayment);
-        double r = .06 / 12;
+        double r = yearlyInterest / 12;
         double n = loanTermNum * 12;
 
+        // given formula
         double totalCost = p *(r*(Math.pow((1+r), n)))/((Math.pow((1+r), n))-1);
         monthlyPaymentView.setText("$" + df2.format(totalCost));
 
@@ -64,10 +68,11 @@ public class Report extends AppCompatActivity {
         totalLoanView.setText("$" + df2.format(totalLoan));
 
         totalCostView.setText("$" + df2.format((yourCost+totalLoan)));
+    }
 
-
-
-
-
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

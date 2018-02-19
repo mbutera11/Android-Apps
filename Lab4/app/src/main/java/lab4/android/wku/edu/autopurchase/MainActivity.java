@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         Intent in = new Intent(this, Report.class);
         EditText et = findViewById(R.id.priceOfCar);
         EditText et2 = findViewById(R.id.downPayment);
-        EditText et3 = findViewById(R.id.interestRate);
+        EditText et3 = findViewById(R.id.yearlyInterest);
 
         RadioGroup rGroup = findViewById(R.id.rgroup);
         int selectedID = rGroup.getCheckedRadioButtonId();
@@ -31,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
         int price = Integer.parseInt(et.getText().toString());
         int downPay = Integer.parseInt(et2.getText().toString());
-        double rate = Double.parseDouble(et3.getText().toString());
+        double yearlyInterest = Double.parseDouble(et3.getText().toString());
 
         in.putExtra("CarPrice", price);
         in.putExtra("DownPayment", downPay);
-        in.putExtra("InterestRate", rate);
         in.putExtra("LoanTerm", rButton.getText());
+        in.putExtra("YearlyInterest", yearlyInterest);
 
         startActivity(in);
     }
