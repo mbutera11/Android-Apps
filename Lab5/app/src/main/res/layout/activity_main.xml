@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="lab5.android.wku.edu.updatedautopurchase.MainActivity">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="44dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="28dp"
+        android:text="Enter Required Information"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="179dp"
+        android:layout_height="128dp"
+        android:layout_marginBottom="53dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="92dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Price of Car:"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="6dp"
+            tools:layout_editor_absoluteY="101dp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Down Payment:"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="146dp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Yearly Interest Rate:"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteY="213dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="116dp"
+        android:layout_height="127dp"
+        android:layout_marginBottom="61dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="85dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/priceOfCar"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            tools:layout_editor_absoluteX="273dp"
+            tools:layout_editor_absoluteY="85dp" />
+
+        <EditText
+            android:id="@+id/downPayment"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            tools:layout_editor_absoluteX="273dp"
+            tools:layout_editor_absoluteY="133dp" />
+
+        <EditText
+            android:id="@+id/yearlyInterest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="153dp"
+        android:layout_height="142dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginStart="116dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Loan Term:"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="136dp"
+            tools:layout_editor_absoluteY="298dp" />
+
+        <RadioGroup
+            android:id="@+id/rgroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="143dp"
+            tools:layout_editor_absoluteY="330dp">
+
+            <RadioButton
+                android:id="@+id/radioButton7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2 Years"
+                android:textAlignment="viewStart" />
+
+            <RadioButton
+                android:id="@+id/radioButton8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3 Years" />
+
+            <RadioButton
+                android:id="@+id/radioButton9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="5 Years" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="119dp"
+        android:layout_marginStart="120dp"
+        android:layout_weight="1"
+        android:onClick="sendMessage"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
