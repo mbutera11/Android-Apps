@@ -38,8 +38,6 @@ public class MyShapeView extends View {
         // blue 60x60 square at 80, 120
         square = new ShapeDrawable(new RectShape());
 
-
-
         // position it
         square.setBounds(80, 120, 80+900, 120+900);
 
@@ -59,7 +57,7 @@ public class MyShapeView extends View {
 
     protected void onDraw(Canvas canvas) {
 
-// set the color
+        // set the color
         square.getPaint().setColor(squareColor);
         // draw the square
         square.draw(canvas);
