@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -33,20 +34,35 @@ public class RegisterActivity extends AppCompatActivity {
                 password = findViewById(R.id.password);
                 confirmPass = findViewById(R.id.confirmpass);
 
-                // if password and confirm password match, insert user
-                if(password.getText().toString().equals(confirmPass.getText().toString())) {
-                    db.insertUser(userName.getText().toString(), password.getText().toString());
-//                    Intent in =  new Intent(RegisterActivity.this, Contacts.class);
-//                    startActivity(in);
+                String usernameText = userName.getText().toString();
+                String passwordText = password.getText().toString();
+                String passwordConfText = confirmPass.getText().toString();
+
+                // if user didnt input something
+                if(usernameText.equals("") || passwordText.equals("") || passwordConfText.equals("")) {
+                    Toast.makeText(RegisterActivity.this, "All Information is Required!", Toast.LENGTH_LONG).show();
                 } else {
-
+                    // if password and confirm password match, insert user
+                    if (passwordText.equals(passwordConfText)) {
+                        // if username does not exist, send to contacts page
+                        if(db.insertUser(usernameText, passwordText)) {
+                            Intent in = new Intent(RegisterActivity.this, ContactsActivity.class);
+                            // used for greeting
+                            in.putExtra("username", userName.getText().toString());
+                            startActivity(in);
+                        } else {
+                            Toast.makeText(RegisterActivity.this, "Username already exists", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    }
                 }
-
             }
         });
 
-        b2 = findViewById(R.id.button1);
 
+        // used for testing
+        b2 = findViewById(R.id.button1);
         b2.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
@@ -58,13 +74,6 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
-
-
-
-
-
-
-
 
 
 

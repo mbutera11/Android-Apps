@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper{
         // create contacts table
         db.execSQL(
                 "create table contacts " +
-                        "(id integer primary key autoincrement, name text,phone text,email text, street text,place text)"
+                        "(id integer primary key autoincrement, userID integer, name text,phone text,email text, street text,place text)"
         );
 
         // create users table
@@ -61,9 +61,10 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
     // insert contact to DB
-    public boolean insertContact(String name, String email, String street, String place, String phone) {
+    public boolean insertContact(int userID, String name, String email, String street, String place, String phone) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+        cv.put("userID", userID);
         cv.put("name", name);
         cv.put("email", email);
         cv.put("street", street);
@@ -77,6 +78,13 @@ public class DBHelper extends SQLiteOpenHelper{
     // insert user to DB
     public boolean insertUser(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "'", null);
+        if(c.getCount() > 0) {
+            c.close();
+            return false;
+        }
+
         ContentValues cv = new ContentValues();
         cv.put("username", username);
         cv.put("password", password);
@@ -85,6 +93,18 @@ public class DBHelper extends SQLiteOpenHelper{
         return true;
     }
 
+    public boolean isRegisteredUser(String username, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'", null);
+        if(c.getCount() <= 0) {
+            c.close();
+            return false;
+        }
+        c.close();
+        return true;
+    }
+
+    // this is used for the database management tool from github.
     public ArrayList<Cursor> getData(String Query){
         //get writable database
         SQLiteDatabase sqlDB = this.getWritableDatabase();
