@@ -39,8 +39,10 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     // if user is registered, send to contacts page
                     if (db.isRegisteredUser(usernameText, passwordText)) {
+                        Session s = new Session(getApplicationContext());
+                        s.setUsername(usernameText);
+                        s.setUserID(db.getUserID(usernameText));
                         Intent in = new Intent(LoginActivity.this, ContactsActivity.class);
-                        in.putExtra("username", usernameText);
                         startActivity(in);
                     } else {
                         Toast.makeText(LoginActivity.this, "Username or Password is Incorrect", Toast.LENGTH_SHORT).show();

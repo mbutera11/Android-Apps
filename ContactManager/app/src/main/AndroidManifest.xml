@@ -24,7 +24,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AndroidDatabaseManager" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".ContactsActivity"></activity>
+        <activity android:name=".ContactsActivity" />
+        <activity android:name=".DisplayContacts" />
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.sql.SQLInput;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +25,7 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String CONTACTS_COLUMN_NAME = "name";
     public static final String CONTACTS_COLUMN_EMAIL = "email";
     public static final String CONTACTS_COLUMN_STREET = "street";
-    public static final String CONTACTS_COLUMN_CITY = "place";
+    public static final String CONTACTS_COLUMN_COUNTRY = "place";
     public static final String CONTACTS_COLUMN_PHONE = "phone";
 
     public static final String USERS_TABLE_NAME = "users";
@@ -49,7 +50,7 @@ public class DBHelper extends SQLiteOpenHelper{
         // create users table
         db.execSQL(
                 "create table users " +
-                        "(id integer primary key, username text, password text)"
+                        "(id integer primary key autoincrement, username text, password text)"
         );
     }
 
@@ -61,19 +62,33 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
     // insert contact to DB
-    public boolean insertContact(int userID, String name, String email, String street, String place, String phone) {
+    public boolean insertContact(int userID, String name, String phone, String email, String street, String place) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("userID", userID);
         cv.put("name", name);
+        cv.put("phone", phone);
         cv.put("email", email);
         cv.put("street", street);
         cv.put("place", place);
-        cv.put("phone", phone);
+
         db.insert("contacts", null, cv);
 
         return true;
     }
+
+    public boolean updateContact (Integer id, String name, String phone, String email, String street,String place) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("name", name);
+        cv.put("phone", phone);
+        cv.put("email", email);
+        cv.put("street", street);
+        cv.put("place", place);
+        db.update("contacts", cv, "id = ? ", new String[] { Integer.toString(id) } );
+        return true;
+    }
+
 
     // insert user to DB
     public boolean insertUser(String username, String password) {
@@ -102,6 +117,42 @@ public class DBHelper extends SQLiteOpenHelper{
         }
         c.close();
         return true;
+    }
+
+
+    public ArrayList<String> getAllContacts(int userID) {
+        ArrayList<String> array_list = new ArrayList<String>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "SELECT * FROM contacts WHERE userID = " + userID, null );
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+            array_list.add(res.getString(res.getColumnIndex(CONTACTS_COLUMN_NAME)));
+            res.moveToNext();
+        }
+        return array_list;
+    }
+
+    public int getUserID(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("SELECT id FROM users WHERE username = '" + username + "'", null);
+        res.moveToFirst();
+        return res.getInt(res.getColumnIndex(USERS_COLUMN_ID));
+
+    }
+
+    public int getContactID(int id, String name) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("SELECT id FROM contacts WHERE userID = " + id + " AND name = '" + name + "'", null);
+        res.moveToFirst();
+        return res.getInt(res.getColumnIndex(CONTACTS_COLUMN_ID));
+    }
+
+    public Cursor getContactData(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from contacts where id="+id+"", null );
+        return res;
     }
 
     // this is used for the database management tool from github.

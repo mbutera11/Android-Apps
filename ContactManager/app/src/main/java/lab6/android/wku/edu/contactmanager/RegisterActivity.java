@@ -15,7 +15,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected EditText confirmPass;
     protected Button b;
     private DBHelper db;
-    protected Button b2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +45,12 @@ public class RegisterActivity extends AppCompatActivity {
                     if (passwordText.equals(passwordConfText)) {
                         // if username does not exist, send to contacts page
                         if(db.insertUser(usernameText, passwordText)) {
+                            // start the user's session, set their username in the session
+                            Session s = new Session(getApplicationContext());
+                            s.setUsername(usernameText);
+                            s.setUserID(db.getUserID(usernameText));
+                            // start next activity
                             Intent in = new Intent(RegisterActivity.this, ContactsActivity.class);
-                            // used for greeting
-                            in.putExtra("username", userName.getText().toString());
                             startActivity(in);
                         } else {
                             Toast.makeText(RegisterActivity.this, "Username already exists", Toast.LENGTH_SHORT).show();
@@ -59,19 +61,6 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-        // used for testing
-        b2 = findViewById(R.id.button1);
-        b2.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              Intent dbmanager = new Intent(RegisterActivity.this,AndroidDatabaseManager.class);
-              startActivity(dbmanager);
-          }
-        });
-
-
 
     }
 
