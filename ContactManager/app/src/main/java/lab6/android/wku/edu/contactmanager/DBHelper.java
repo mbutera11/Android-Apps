@@ -1,3 +1,5 @@
+// Michael Butera
+
 package lab6.android.wku.edu.contactmanager;
 
 import android.content.ContentValues;
@@ -77,6 +79,7 @@ public class DBHelper extends SQLiteOpenHelper{
         return true;
     }
 
+    // updates row in table at the specific id
     public boolean updateContact (Integer id, String name, String phone, String email, String street,String place) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -108,6 +111,7 @@ public class DBHelper extends SQLiteOpenHelper{
         return true;
     }
 
+    // check if username is already registered when a user is trying to register
     public boolean isRegisteredUser(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'", null);
@@ -119,7 +123,7 @@ public class DBHelper extends SQLiteOpenHelper{
         return true;
     }
 
-
+    // returns the names of all contacts for a specific user with userID
     public ArrayList<String> getAllContacts(int userID) {
         ArrayList<String> array_list = new ArrayList<String>();
 
@@ -134,6 +138,7 @@ public class DBHelper extends SQLiteOpenHelper{
         return array_list;
     }
 
+    // method returns userID of a user with given username
     public int getUserID(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("SELECT id FROM users WHERE username = '" + username + "'", null);
@@ -142,6 +147,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
     }
 
+    // method returns the id for a specific contact given the userID and the name of the contact
     public int getContactID(int id, String name) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("SELECT id FROM contacts WHERE userID = " + id + " AND name = '" + name + "'", null);
@@ -149,55 +155,17 @@ public class DBHelper extends SQLiteOpenHelper{
         return res.getInt(res.getColumnIndex(CONTACTS_COLUMN_ID));
     }
 
+    // returns all contact information for every contact of user with userID
     public Cursor getContactData(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res =  db.rawQuery( "select * from contacts where id="+id+"", null );
         return res;
     }
 
-    // this is used for the database management tool from github.
-    public ArrayList<Cursor> getData(String Query){
-        //get writable database
-        SQLiteDatabase sqlDB = this.getWritableDatabase();
-        String[] columns = new String[] { "message" };
-        //an array list of cursor to save two cursors one has results from the query
-        //other cursor stores error message if any errors are triggered
-        ArrayList<Cursor> alc = new ArrayList<Cursor>(2);
-        MatrixCursor Cursor2= new MatrixCursor(columns);
-        alc.add(null);
-        alc.add(null);
-
-        try{
-            String maxQuery = Query ;
-            //execute the query results will be save in Cursor c
-            Cursor c = sqlDB.rawQuery(maxQuery, null);
-
-            //add value to cursor2
-            Cursor2.addRow(new Object[] { "Success" });
-
-            alc.set(1,Cursor2);
-            if (null != c && c.getCount() > 0) {
-
-                alc.set(0,c);
-                c.moveToFirst();
-
-                return alc ;
-            }
-            return alc;
-        } catch(SQLException sqlEx){
-            Log.d("printing exception", sqlEx.getMessage());
-            //if any exceptions are triggered save the error message to cursor an return the arraylist
-            Cursor2.addRow(new Object[] { ""+sqlEx.getMessage() });
-            alc.set(1,Cursor2);
-            return alc;
-        } catch(Exception ex){
-            Log.d("printing exception", ex.getMessage());
-
-            //if any exceptions are triggered save the error message to cursor an return the arraylist
-            Cursor2.addRow(new Object[] { ""+ex.getMessage() });
-            alc.set(1,Cursor2);
-            return alc;
-        }
+    // removes row of the database where the id of the contact is the passed id
+    public int deleteContact(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("contacts", "id = ? ", new String[] { Integer.toString(id) });
     }
 
 

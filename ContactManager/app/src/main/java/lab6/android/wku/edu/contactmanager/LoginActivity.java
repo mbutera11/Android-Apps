@@ -1,3 +1,5 @@
+// Michael Butera
+
 package lab6.android.wku.edu.contactmanager;
 
 import android.content.Intent;
@@ -25,11 +27,13 @@ public class LoginActivity extends AppCompatActivity {
 
         db = new DBHelper(this);
         loginButton = findViewById(R.id.login);
+        // once log in button is pressed
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 username = findViewById(R.id.username);
                 password = findViewById(R.id.password);
+                // store username and password as strings
                 String usernameText = username.getText().toString();
                 String passwordText = password.getText().toString();
 
@@ -44,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                         s.setUserID(db.getUserID(usernameText));
                         Intent in = new Intent(LoginActivity.this, ContactsActivity.class);
                         startActivity(in);
+                        finish();
                     } else {
                         Toast.makeText(LoginActivity.this, "Username or Password is Incorrect", Toast.LENGTH_SHORT).show();
                     }
@@ -51,9 +56,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
     }
 
     @Override

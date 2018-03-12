@@ -67,7 +67,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center_vertical"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textAlignment="center" />
 
     </LinearLayout>
 

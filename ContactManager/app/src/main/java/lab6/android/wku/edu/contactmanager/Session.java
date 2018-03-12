@@ -1,3 +1,5 @@
+// Michael Butera
+
 package lab6.android.wku.edu.contactmanager;
 
 import android.content.Context;
@@ -14,7 +16,7 @@ import android.preference.PreferenceManager;
  * setUserID: stores the logged in user's userID
  * getUserID: returns logged in user's userID
  *
- * destroy: clears shared preference of all stored user information
+ * destroy: clears shared preference of all stored user information, used in logout functionality
  *
  */
 

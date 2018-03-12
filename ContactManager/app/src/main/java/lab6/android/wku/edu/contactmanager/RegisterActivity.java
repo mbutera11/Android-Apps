@@ -1,3 +1,5 @@
+// Michael Butera
+
 package lab6.android.wku.edu.contactmanager;
 
 import android.content.Intent;
@@ -13,7 +15,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected EditText userName;
     protected EditText password;
     protected EditText confirmPass;
-    protected Button b;
     private DBHelper db;
 
     @Override
@@ -25,6 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         db = new DBHelper(this);
         Button b = findViewById(R.id.register);
+        // once register button is clicked ...
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
                 password = findViewById(R.id.password);
                 confirmPass = findViewById(R.id.confirmpass);
 
+                // store all user input as strings
                 String usernameText = userName.getText().toString();
                 String passwordText = password.getText().toString();
                 String passwordConfText = confirmPass.getText().toString();
@@ -52,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
                             // start next activity
                             Intent in = new Intent(RegisterActivity.this, ContactsActivity.class);
                             startActivity(in);
+                            finish();
                         } else {
                             Toast.makeText(RegisterActivity.this, "Username already exists", Toast.LENGTH_SHORT).show();
                         }

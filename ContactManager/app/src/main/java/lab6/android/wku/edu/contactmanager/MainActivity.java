@@ -1,3 +1,5 @@
+// Michael Butera
+
 package lab6.android.wku.edu.contactmanager;
 
 import android.content.Intent;
@@ -8,9 +10,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    Button login;
-    Button signup;
+    protected Button login;
+    protected Button signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         signup = findViewById(R.id.signup);
 
+        // send to login page if log in button is clicked
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // send to register page if register button is clicked
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
