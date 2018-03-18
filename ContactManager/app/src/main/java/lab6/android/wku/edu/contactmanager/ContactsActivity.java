@@ -97,6 +97,7 @@ public class ContactsActivity extends AppCompatActivity {
                         s.destroy();
                         Intent in = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(in);
+                        finish();
                     }
                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override

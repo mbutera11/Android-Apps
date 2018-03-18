@@ -41,4 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    // doesnt allow the user to press back button on home page
+    @Override
+    public void onBackPressed() {
+    }
 }
