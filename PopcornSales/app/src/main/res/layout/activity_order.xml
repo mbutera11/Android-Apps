@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="test1.android.wku.edu.popcornsales.OrderActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="500dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="37dp"
+        android:text="Welcome to Popcorn Sales"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="243dp"
+        android:layout_height="165dp"
+        android:layout_marginBottom="39dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/popcorn" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="195dp"
+        android:layout_height="128dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="283dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:gravity="center_vertical"
+            android:text="Unpopped Popcorn ($3.00)" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:gravity="center_vertical"
+            android:text="Carmel Popcorn ($3.50)" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:text="Toffey Nut Popcorn ($5.00)" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="22dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="39dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quantity"
+            android:textAlignment="textEnd" />
+
+        <EditText
+            android:id="@+id/unpopped"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:textAlignment="textEnd"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/carmel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:textAlignment="textEnd"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/toffey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:textAlignment="textEnd"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/rGroup"
+        android:layout_width="129dp"
+        android:layout_height="92dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+        <RadioButton
+            android:id="@+id/visa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Visa"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/mastercard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Master Card"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Check"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="124dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
+        android:text="Payment Method"
+        app:layout_constraintBottom_toTopOf="@+id/rGroup"
+        app:layout_constraintEnd_toStartOf="@+id/submit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="390dp"
+        android:text="Submit Order"
+        app:layout_constraintBottom_toTopOf="@+id/clear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rGroup"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.51" />
+
+    <Button
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="15dp"
+        android:text="Clear Order Form"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rGroup"
+        app:layout_constraintTop_toBottomOf="@+id/submit" />
+
+</android.support.constraint.ConstraintLayout>
