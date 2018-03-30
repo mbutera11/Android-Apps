@@ -1,3 +1,5 @@
+// Michael Butera
+
 package lab7.android.wku.edu.mapsmb;
 
 import android.content.Intent;
@@ -24,11 +26,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // address text views
         address1 = findViewById(R.id.address1);
         address2 = findViewById(R.id.address2);
         address3 = findViewById(R.id.address3);
         address4 = findViewById(R.id.address4);
 
+        // name text views
         name1 = findViewById(R.id.name1);
         name2 = findViewById(R.id.name2);
         name3 = findViewById(R.id.name3);
@@ -73,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(in);
             }
         });
-
-
 
     }
 }

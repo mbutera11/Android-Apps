@@ -1,3 +1,5 @@
+// Michael Butera
+
 package lab7.android.wku.edu.mapsmb;
 
 import android.content.Context;
@@ -27,6 +29,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        // get address and name from the intent created in Main
         address = getIntent().getStringExtra("address");
         name = getIntent().getStringExtra("name");
 
@@ -53,35 +56,45 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker at address location
         LatLng location = null;
         try {
+            // location is the LatLng object returned from the getCoordinates method
             location = getCoordinates(getApplicationContext(), address);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        // add marker with the location lat, long coordinates
+        // also sets title of marker to the name passed from the main activity
         mMap.addMarker(new MarkerOptions().position(location).title(name));
+
+        // moves camera to the location and sets zoom to 15
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
 
     }
 
 
     // converts street address to LatLng object
+    // "Reverse Geocoding"
     public LatLng getCoordinates(Context c, String streetAddress) throws IOException {
         // create geocoder object
         Geocoder g = new Geocoder(c);
 
         // list of Address objects
-        List<Address> address = g.getFromLocationName(streetAddress, 5);
-        // if it is null, return, it couldnt find an Address
+        // will only hold 1 address, streetAddress
+        List<Address> address = g.getFromLocationName(streetAddress, 1);
+
+        // if the address list is null, it couldnt get location from street address
+        // return null
         if(address == null) {
             return null;
         }
 
-        // holds location of the streetAddress with its lat and long
+        // Address object of the first Address in the address list
         Address location = address.get(0);
 
         // create LatLng object with the locations coordinates to return
         LatLng place = new LatLng(location.getLatitude(), location.getLongitude());
 
+        // return latitude and longitude of the streetAddress parameter
         return place;
 
 
