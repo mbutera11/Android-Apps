@@ -13,6 +13,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
@@ -63,8 +64,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         // add marker with the location lat, long coordinates
-        // also sets title of marker to the name passed from the main activity
-        mMap.addMarker(new MarkerOptions().position(location).title(name));
+        // also sets title of marker to the name passed from the main activity and shows it
+        Marker marker = mMap.addMarker(new MarkerOptions().position(location).title(name));
+        marker.showInfoWindow();
 
         // moves camera to the location and sets zoom to 15
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
