@@ -69,28 +69,26 @@ public class MainActivity extends Activity {
         @Override
         public boolean onDrag(View v, DragEvent event) {
 
-            // Handles each of the expected events
             switch (event.getAction()) {
 
-                //signal for the start of a drag and drop operation.
+                // when the drag is started, dont do anything particular
                 case DragEvent.ACTION_DRAG_STARTED:
-                    // do nothing
                     break;
 
-                //the drag point has entered the bounding box of the View
+                // when the event enters a view, change background to dark drawable
                 case DragEvent.ACTION_DRAG_ENTERED:
-                    v.setBackground(targetShape);	//change the shape of the view
+                    v.setBackground(targetShape);
                     break;
 
-                //the user has moved the drag shadow outside the bounding box of the View
+                // when the event exits a view, set background to normal drawable
                 case DragEvent.ACTION_DRAG_EXITED:
-                    v.setBackground(normalShape);	//change the shape of the view back to normal
+                    v.setBackground(normalShape);
                     break;
 
-                //drag shadow has been released,the drag point is within the bounding box of the View
+                // when the event is let go inside a view
                 case DragEvent.ACTION_DROP:
-                    // if the view is the bottomlinear, we accept the drag item
 
+                    // get current view group and remove the view from it so it can be put in the other view
                     View view = (View) event.getLocalState();
                     ViewGroup viewgroup = (ViewGroup) view.getParent();
                     viewgroup.removeView(view);

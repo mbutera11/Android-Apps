@@ -1,9 +1,11 @@
-package exercise.android.wku.edu.multitouch;
+// Michael Butera
+
+package test2.android.wku.edu.hatstoremb;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
+import android.media.Image;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -16,10 +18,13 @@ public class ImageViewWithZoom extends View {
     private float scaleFactor = 1.0f;
     private ScaleGestureDetector scaleGestureDetector;
 
-    public ImageViewWithZoom(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        image = context.getResources().getDrawable(R.drawable.hat1);
+    public ImageViewWithZoom(Context context, int id) {
+        super(context);
+        // set image from the ID passed from the main activity
+        image = context.getResources().getDrawable(id);
         setFocusable(true);
+
+        // set bounds of image
         image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
         scaleGestureDetector = new ScaleGestureDetector(context, new ScaleListener());
     }

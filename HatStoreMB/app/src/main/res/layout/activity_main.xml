@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#aaaaaa"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="Drag a hat to see what it looks like on the dog!"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/topRelative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            android:id="@+id/hat2"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginHorizontal="10dp"
+            android:src="@drawable/hat2" />
+
+        <ImageView
+            android:id="@+id/hat3"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hat3" />
+
+        <ImageView
+            android:id="@+id/hat1"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/hat1" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottomRelative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topRelative">
+
+        <ImageView
+            android:id="@+id/dog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="34dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dog" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

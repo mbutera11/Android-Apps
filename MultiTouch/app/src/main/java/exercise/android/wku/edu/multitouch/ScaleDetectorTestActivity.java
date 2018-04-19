@@ -8,7 +8,7 @@ public class ScaleDetectorTestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new ImageViewWithZoom(this));
+        setContentView(R.layout.activity_scale_detector_test);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
